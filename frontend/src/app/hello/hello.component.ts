@@ -31,6 +31,7 @@ export class HelloComponent implements OnInit {
       error => console.log(error),
       () => console.log('complete'));
   }
+  
 
   getComments(): void {
     // this.indexService.getCommentsWeb();
