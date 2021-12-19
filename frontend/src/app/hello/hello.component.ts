@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IndexService } from "../service/index.service";
 import { User } from '../Entities/User';
+import { Comment } from '../Entities/Comment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -11,7 +12,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class HelloComponent implements OnInit {
   test:string = "";
   serviceValue:string = "";
-  users:User[]  = [];
+  users:User[] = [];
+  comments:Comment[] = [];
 
 
   constructor(private service: IndexService, private indexService: IndexService, private http:HttpClient) {
@@ -24,7 +26,15 @@ export class HelloComponent implements OnInit {
     
   }
   getUsers(): void {
-    this.indexService.getUserIndex().subscribe(res => this.users = res);
+    this.indexService.getUserIndex().subscribe(res => {JSON.stringify(this.users = res); 
+                                                          console.log(res);},
+      error => console.log(error),
+      () => console.log('complete'));
+  }
+
+  getComments(): void {
+    // this.indexService.getCommentsWeb();
+    return this.indexService.getCommentsWeb();
   }
 
 }

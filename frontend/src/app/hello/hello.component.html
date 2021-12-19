@@ -1,4 +1,13 @@
 <p>
-    {{users[0].id|json}}
+    {{users[0]|json}}<br>
+    {{comments|json}}
 
 </p>
+<table>
+
+    <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.username}}</td>
+        
+    </tr>
+</table>
