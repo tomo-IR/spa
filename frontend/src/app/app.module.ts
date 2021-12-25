@@ -7,6 +7,8 @@ import { HelloComponent } from './hello/hello.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserIndexService } from './WebService/user-index.service';
 import { IndexService } from './service/index.service';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { IndexService } from './service/index.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent, UserIndexService, IndexService]
